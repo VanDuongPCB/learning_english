@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Reel Extractor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            min-width: 600px;
+        }
+        .title-bar {
+            background-color: #4267B2;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: 0 0;
+        }
+        .tab-bar {
+            display: flex;
+            background-color: #f1f1f1;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-right: 5px;
+        }
+        .tab-item {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab-item.active {
+            background-color: #fff;
+            font-weight: bold;
+        }
+        .panes {
+            padding: 10px;
+        }
+        .pane {
+            display: none;
+        }
+        .pane.active {
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+        }
+        .div-table {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            width: 100%;
+        }
+
+        .div-table span {
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="title-bar">Facebook Reel Extractor</h2>
+    <div class="tab-bar">
+        <div class="tab-item active" id="tab-get-links">Get Links</div>
+        <div class="tab-item" id="tab-settings">Settings</div>
+    </div>
+    <div class="panes">
+        <div class="pane active" id="pane-get-links">
+            <div style="margin-bottom: 5px;">
+                <span>Owner:</span>
+                <input type="text" id="owner-name" placeholder="Enter owner name">
+            </div>
+            <textarea id="links-output" rows="20"></textarea>
+            <button id="btn-detect-links">Detect Links</button>
+            <button id="btn-upload-links">Upload Links</button>
+        </div>
+        <div class="pane" id="pane-settings">
+            <div style="margin-bottom: 5px;">
+                <span>Save target:</span>
+                <select id="save-target">
+                    <option value="google-sheets">Google Sheets</option>
+                    <option value="firebase">Firebase</option>
+                </select>
+            </div>
+            <div>
+                <div class="div-table">
+                    <span>Google Sheets URL:</span>
+                    <input type="text" id="google-sheets-url" placeholder="Enter Google Sheets URL">
+                </div>
+                <div class="div-table">
+                    <span>Firebase URL:</span>
+                    <input type="text" id="firebase-url" placeholder="Enter Firebase URL">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="popup.js"></script>
+</html>

@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Reel Extractor",
+  "version": "1.0",
+  "description": "Extracts reels from Facebook",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": ["storage", "tabs","scripting","activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inject.js"]
+    }
+  ],  
+  "host_permissions": [
+    "https://*.firebasedatabase.app/*",
+    "https://script.google.com/*"
+  ]
+}
